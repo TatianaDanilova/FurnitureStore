@@ -1,0 +1,44 @@
+﻿<Window x:Class="FurnitureStore.AdminAdd"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FurnitureStore"
+        mc:Ignorable="d"
+        Title="AdminAdd" Height="350" Width="400" Background="#FF051567" WindowStartupLocation="CenterScreen">
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="Heading">
+            <Setter Property="Foreground" Value="#FFB3C0FF"/>
+            <Setter Property="FontFamily" Value="Sitka Heading"/>
+            <Setter Property="FontSize" Value="28"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+
+
+    <Grid>
+        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1" Margin="35 0 35 30">
+            <StackPanel>
+                <Label Content="Название" Background="#FFB3C0FF"/>
+                <TextBox x:Name="NameBox" BorderBrush="#FFB3C0FF" Background="#FF051567" Foreground="#FFB3C0FF" CaretBrush="#FFB3C0FF" SelectionBrush="#FFB3C0FF" FontFamily="Sitka Heading"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Margin="35 0 35 30">
+            <StackPanel>
+                <Label Content="Цена" Background="#FFB3C0FF"/>
+                <TextBox x:Name="PriceBox" BorderBrush="#FFB3C0FF" Background="#FF051567" Foreground="#FFB3C0FF" CaretBrush="#FFB3C0FF" SelectionBrush="#FFB3C0FF" FontFamily="Sitka Heading"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="3" Margin="35 0">
+            <Button x:Name="AddButton" Click="AddClick" Content="      Добавить      " Foreground="#FF051567" FontFamily="Sitka Heading" FontSize="20" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderBrush="#FFB3C0FF" VerticalAlignment="Top" Background="#FFB3C0FF" />
+        </Grid>
+    </Grid>
+</Window>

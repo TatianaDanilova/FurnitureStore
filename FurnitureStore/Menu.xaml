@@ -1,0 +1,50 @@
+﻿<Window x:Class="FurnitureStore.Menu"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FurnitureStore"
+        mc:Ignorable="d"
+        Title="Menu" Height="450" Width="800" Background="#FF051567" WindowStartupLocation="CenterScreen">
+
+    <Window.Resources>
+        <Style TargetType="Label" x:Key="Heading">
+            <Setter Property="Height" Value="52"/>
+            <Setter Property="Foreground" Value="#FFB3C0FF"/>
+            <Setter Property="FontFamily" Value="Sitka Heading"/>
+            <Setter Property="FontSize" Value="36"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="0.25*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="1">
+            <Border Grid.Row="0" Grid.RowSpan="2" Background="#FF051567" BorderBrush="#FFB3C0FF" BorderThickness="1.5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="10 0 10 10">
+                <Border.Effect>
+                    <DropShadowEffect BlurRadius="25" Color="LightGray" ShadowDepth="0"/>
+                </Border.Effect>
+                <DataGrid x:Name="MenuGrid" Margin="10" FontSize="15" IsReadOnly="True" BorderThickness="1.5" Background="#FF051567" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Название" Binding="{Binding furniture_name}" Width="*" />
+                        <DataGridTextColumn Header="Цена" Binding="{Binding furniture_price}" Width="*"/>
+                        <DataGridTemplateColumn Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button x:Name="MinusQuantityButton" Content="  Добавить в корзину  " Click="AddToOrder" Margin="0 5" Command="{Binding IncrementQuantityCommand}" Foreground="#FF051567" Padding="0" HorizontalAlignment="Center" Background="#FFB3C0FF" BorderBrush="#FFB3C0FF" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </Border>
+        </Grid>
+        <Label x:Name="ReastaurantName" Style="{StaticResource Heading}" Grid.Row="0" Grid.ColumnSpan="2" Content="МебельВам" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Button x:Name="OrderButton" HorizontalAlignment="Right" Click="ButtonToOrder" Content="Корзина" IsEnabled="True" Height="50" Background="#FFB3C0FF" Foreground="#FF051567" FontFamily="Sitka Heading" FontSize="20" BorderBrush="#FFB3C0FF" Margin="10" HorizontalContentAlignment="Center"/>
+        <Button x:Name="ExitButton" HorizontalAlignment="Left" Click="ButtonToExit" Content=" Выйти " IsEnabled="True" Height="50" Background="#FFB3C0FF" Foreground="#FF051567" FontFamily="Sitka Heading" FontSize="20" BorderBrush="#FFB3C0FF" Margin="10" HorizontalContentAlignment="Center"/>
+    </Grid>
+</Window>
